@@ -1,4 +1,3 @@
-import { nanoid } from "nanoid";
 import React, { Component } from "react";
 import {ContactForm} from "./ContactForm/ContactForm";
 import {ContactList} from "./ContactList/ContactList";
