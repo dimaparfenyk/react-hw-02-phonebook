@@ -1,6 +1,9 @@
 import React from "react";
 import { Component } from "react";
 import { nanoid } from 'nanoid'
+import PropTypes from 'prop-types';
+import { Button, Container, Label, FormInput} from "./ContactForm.styled";
+
 
 const INITIAL_STATE = {
         name: '',
@@ -14,7 +17,7 @@ export class ContactForm extends Component{
     numberInputId = nanoid();
 
     handleChange = e => {
-    const {name,value}=e.currentTarget
+        const { name, value } = e.currentTarget;
     
     this.setState({
       [name]: value,
@@ -35,8 +38,9 @@ export class ContactForm extends Component{
     render() {
         return (
             <form onSubmit={this.handleSubmit}>
-                <label htmlFor={this.nameInputId}>Name
-                    <input
+                <Container>
+                <Label htmlFor={this.nameInputId}>Name
+                    <FormInput
                         type="text"
                         name="name"
                         id={this.nameInputId}
@@ -46,9 +50,9 @@ export class ContactForm extends Component{
                         title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
                         required
                     />
-                </label>
-                <label htmlFor={this.numberInputId}>Number
-                    <input
+                </Label>
+                <Label htmlFor={this.numberInputId}>Number
+                    <FormInput
                         type="tel"
                         name="number"
                         id={this.numberInputId}
@@ -58,13 +62,17 @@ export class ContactForm extends Component{
                         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
                         required
                     />
-                </label>
+                </Label>
         
-                <button
+                <Button
                     type="submit">
                     Add Contact
-                </button>
+                    </Button>
+            </Container>
             </form>
         );
     };
 };
+
+ContactForm.propTypes =
+    { onSubmit: PropTypes.func.isRequired };
