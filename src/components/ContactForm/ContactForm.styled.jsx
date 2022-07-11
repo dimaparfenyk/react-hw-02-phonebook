@@ -19,6 +19,7 @@ export const FormInput = styled.input`
     outline: none;
     padding: 0 12px;
     border: 1px solid orange;
+    border-radius:8px;
     color: teal;
 `
 
@@ -28,6 +29,7 @@ export const Button = styled.button`
     justify-content: center;
     background-color: #457aab;
     border: none;
+    border-radius:8px;
     color: white;
     cursor: pointer;
     height: 40px;
